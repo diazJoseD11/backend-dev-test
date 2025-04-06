@@ -6,6 +6,7 @@ val logbackVersion: String by project
 
 plugins {
     kotlin("jvm") version "2.0.21"
+    kotlin("plugin.serialization") version "2.0.21"
     id("io.ktor.plugin") version "3.0.1"
     id("com.github.ben-manes.versions") version "0.51.0"
     id("com.gradleup.shadow") version "8.3.5"
@@ -50,6 +51,7 @@ dependencies {
     implementation("io.ktor:ktor-server-html-builder-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-sse:$ktorVersion")
     implementation("io.ktor:ktor-server-compression-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-sessions:$ktorVersion")
 
     implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
     implementation("org.glassfish.expressly:expressly:5.0.0")
@@ -57,6 +59,10 @@ dependencies {
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+
+    // Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
     implementation("org.jetbrains:kotlin-css-jvm:1.0.0-pre.156-kotlin-1.5.0")
 
@@ -70,6 +76,18 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
     testImplementation("org.xmlunit:xmlunit-core:2.10.0")
     testImplementation("org.xmlunit:xmlunit-assertj3:2.10.0")
+
+    // Exposed ORM
+    implementation("org.jetbrains.exposed:exposed-core:0.45.0")
+    implementation("org.jetbrains.exposed:exposed-dao:0.45.0")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.45.0")
+    implementation("org.jetbrains.exposed:exposed-java-time:0.45.0")
+
+    // PostgresSQL Driver
+    implementation("org.postgresql:postgresql:42.6.0")
+
+    // HikariCP para connexion
+    implementation("com.zaxxer:HikariCP:5.1.0")
 }
 
 tasks.withType<DependencyUpdatesTask> {

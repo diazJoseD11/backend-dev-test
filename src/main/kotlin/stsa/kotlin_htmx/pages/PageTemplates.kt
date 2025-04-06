@@ -157,13 +157,13 @@ class MainTemplate<T : Template<FlowContent>>(private val template: T, val pageT
                         ul {
                             li { a(href = "/") { +"Home" } }
                             li { span("separator") { +"🚀" } }
-                            li { a(href = "/link") { +"Category" } }
+                            li { a(href = "/skins") { +"Skins" } }
                             li { span("separator") { +"🚀" } }
-                            li { a(href = "/link") { +"Category" } }
+                            li { a(href = "/crates") { +"Crates" } }
                             li { span("separator") { +"🚀" } }
-                            li { a(href = "/link") { +"Category" } }
+                            li { a(href = "/agents") { +"Agents" } }
                             li { span("separator") { +"🚀" } }
-                            li { a(href = "/link") { +"Category" } }
+                            li { a(href = "/keys") { +"Keys" } }
                         }
                     }
 
